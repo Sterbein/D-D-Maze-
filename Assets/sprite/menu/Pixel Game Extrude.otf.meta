@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: cf57d64b2881fe846830bb0900e6ad68
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Pixel Game Extrude
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6bf241c3e3b3f6840baf966d62068266, type: 3}
+  - {fileID: 12800000, guid: cd70381de4b3d9c4a9f330aa5d5aa186, type: 3}
+  customCharacters: 
+  fontRenderingMode: 3
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

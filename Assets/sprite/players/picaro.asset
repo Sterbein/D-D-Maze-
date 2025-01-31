@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fccb2ae8abad4647b75d1dd64561c22, type: 3}
+  m_Name: picaro
+  m_EditorClassIdentifier: 
+  players: {fileID: 4163668580291657276, guid: 12fa635e94f0c4c4ab55a1b620f927b6, type: 3}
+  wallpaper: {fileID: 1024069151341385491, guid: 14b9b6759649f364c97ed9a6584ac8f1, type: 3}
+  names: Picaro
