@@ -1,18 +1,35 @@
-# Descripcion del juego
-Este juego fue creado en Unity es un Maze-Runner con tematica de Dungeons and Dragons multijugador en el cual se  generan laberintos con nxn dimesiones impares totalmenete nuevos en cada partida .Para ganar en este juego tienes que encontrar una llave esparcida en el laberinto y llegar al centro donde te aguarda un gran  tesoro ,pero por el camino te encontraras distintas trampas que te obstacularizaran en tu camino a la victoria y distintos beneficios que te ayudaran a superar los obstaculos.
-# Logica de la generacion del mapa.Para la guia al abriri el juego dirijase al bton guia antes de empezar a jugar
-La base de la generacion de este mapa es el algoritmo de Prim pero para la generacion de laberintos y adaptado a unity.El laberinto comienza con una celda de camino inicial donde apartir de ahi se va a empezar a genera el laberinto.Despues se agragan a una lista las posible paredes adyacentes a esta celda.Despues mediante un While se selecciona una pared aleatoria de la lista y verifica si al otro lado de la pared no hay laberinto si no hay convierte la posible pared que estaba en la lista y la celda del otro lado en camino.Como añadi otro camino se agregan a la lista las posibles paredes adyacentes a de los caminos ,las cuales pueden ser tomadas en otra iteracion.Repetimos este proceso hasta que no haya paredes en la lista.Una vez terminado las celdas que no se hayan convertido en paredes se instancian como pared.Ademas creo una matriz de para guardar la intancia  del laberinto.
+# Descripción del juego
+
+Este juego, creado en Unity, es un Maze-Runner con temática de Dungeons and Dragons multijugador, en el cual se generan laberintos con dimensiones nxn impares totalmente nuevos en cada partida. Para ganar en este juego, tienes que encontrar una llave esparcida en el laberinto y llegar al centro, donde te aguarda un gran tesoro. Pero por el camino, te encontrarás distintas trampas que te obstaculizarán en tu camino a la victoria y distintos beneficios que te ayudarán a superar los obstáculos.
+
+# Lógica de la generación del mapa. 
+
+Para la guía al abrir el juego, diríjase al botón "Guía" antes de empezar a jugar.La base de la generación de este mapa es el algoritmo de Prim, pero adaptado para la generación de laberintos en Unity. El laberinto comienza con una celda de camino inicial, donde a partir de ahí se va a empezar a generar el laberinto. Después se agregan a una lista las posibles paredes adyacentes a esta celda. Después, mediante un While, se selecciona una pared aleatoria de la lista y verifica si al otro lado de la pared no hay laberinto. Si no hay, convierte la posible pared que estaba en la lista y la celda del otro lado en camino. Como añadí otro camino, se agregan a la lista las posibles paredes adyacentes a los caminos, las cuales pueden ser tomadas en otra iteración. Repetimos este proceso hasta que no haya paredes en la lista. Una vez terminado, las celdas que no se hayan convertido en paredes se instancian como pared. Además, creo una matriz para guardar la instancia del laberinto.
+
 # Instanciar jugadores
-Para instnciar la cantidad de jugadores deseada se obtine a traves de una variable que se guarda  previamente cuando el jugador elige la cantidad y depues se recorre la matriz para instanciarlos en cada esquina del mapa.La instancia de los jugadores se la agrego a la matriz creada previamente. 
-# Instanciar trampas , buff ,llaves y cofre
-Para instancair las trampas y buff se agregan a una lista los prefabs luego  voy  recorriendo la matriz y en cada casilla "camino" que no haya jugador ni llave ni el cofre se va cogiendo un prefab aleatorio de la lista y se genera un numero aleatorio en dependencia de cual sea, se instancia o no la trampa.Para instanciar las llaves se generan dos nnumeros aleatorios dentro del rango del laberinto la cual te da un posicion aleatoria del mapa que mediante un  while se comprueba que no se instancie ni en paredes ,ni en jugadores ,ni en trampas ,ni en el cofre.El cofre se instancia en la posicion del centro.
-# Controlador de turnos 
-Para controlar los turnos agrego a una lista los jugadores y mediante una variable en cada iteracion le sumo uno y le aplico el modulo en correspondecia con la cantidad de jugadores y asi voy recorriendo la lista y en el jugador en que este la variable se le va modificando una variable booleana la cual le permitira moverse y activar habilidades.
-# Movimiento del jugador 
-Para el movimiento del jugador utilizo un funcion de unity la cual mueve un objeto de su posicion actual a la posicion inicada a cierta velocidad,se verifica que la direcion en la que se vaya a mover no sea una pared y solo se le permite moverse si es su turno mediante la variable ya hablada en el controlador de turnos.
-# Activacion de trampas ,llaves y cofre
-Para la activacion de la trampa voy comprobando cada ves que se mueve el personaje en turno si la posicion en la q se encuentra es la misma que la de una trampa y si lo es que llame a la funcion de activacion que en dependecia de el nombre de la trampa mediante un swich se elige lo q tiene que hacer la trampa.Para la llave compruebo igual  de manera que la trampa pero en ves de activar una funcion lo que hago es volver una variable booleana true q es la que me permite despues abrir el cofre para finalizar el juego.
-# Activacion de habliidades 
-Para actvar habilidades le puse un input que al tocarlo en dependencia de la habilidad que el personaje tenga mediante un swich se le aplican los efectos que tiene que tener la habilidad.
-# Logica de la camara
-Para  la camara  compruebo mediante el index hablado anteriormente en el controlador de turno que el juagdor en el que esta el index actual la camara le haga seguimiento con una funcion llamada vector.Lerp.
+
+Para instanciar la cantidad de jugadores deseada, se obtiene a través de una variable que se guarda previamente cuando el jugador elige la cantidad, y después se recorre la matriz para instanciarlos en cada esquina del mapa. La instancia de los jugadores se la agrego a la matriz creada previamente.
+
+# Instanciar trampas, buff, llaves y cofre
+
+Para instanciar las trampas y buffs, se agregan a una lista los prefabs. Luego voy recorriendo la matriz y, en cada casilla "camino" que no haya jugador, ni llave, ni cofre, se va cogiendo un prefab aleatorio de la lista y se genera un número aleatorio. En dependencia de cuál sea, se instancia o no la trampa. Para instanciar las llaves, se generan dos números aleatorios dentro del rango del laberinto, lo cual te da una posición aleatoria del mapa que, mediante un While, se comprueba que no se instancie ni en paredes, ni en jugadores, ni en trampas, ni en el cofre. El cofre se instancia en la posición del centro.
+
+# Controlador de turnos
+
+Para controlar los turnos, agrego a una lista los jugadores y, mediante una variable, en cada iteración le sumo uno y le aplico el módulo en correspondencia con la cantidad de jugadores. Así voy recorriendo la lista y al jugador en el que esté la variable se le va modificando una variable booleana, la cual le permitirá moverse y activar habilidades.
+
+# Movimiento del jugador
+
+Para el movimiento del jugador, utilizo una función de Unity la cual mueve un objeto de su posición actual a la posición indicada a cierta velocidad. Se verifica que la dirección en la que se vaya a mover no sea una pared y solo se le permite moverse si es su turno, mediante la variable ya hablada en el controlador de turnos.
+
+# Activación de trampas, llaves y cofre
+
+Para la activación de la trampa, voy comprobando cada vez que se mueve el personaje en turno si la posición en la que se encuentra es la misma que la de una trampa. Si lo es, que llame a la función de activación que, en dependencia del nombre de la trampa, mediante un switch se elige lo que tiene que hacer la trampa. Para la llave, compruebo igual de manera que la trampa, pero en vez de activar una función, lo que hago es volver una variable booleana true, que es la que me permite después abrir el cofre para finalizar el juego.
+
+# Activación de habilidades
+
+Para activar habilidades, le puse un input que al tocarlo, en dependencia de la habilidad que el personaje tenga, mediante un switch se le aplican los efectos que tiene que tener la habilidad.
+
+# Lógica de la cámara
+
+Para la cámara, compruebo mediante el índice hablado anteriormente en el controlador de turno que el jugador en el que está el índice actual, la cámara le haga seguimiento con una función llamada Vector3.Lerp.
